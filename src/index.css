@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat Alternates", sans-serif;
+  line-height: 1.75;
+}
+
+.container {
+  max-width: 1630px;
+  margin: 0 auto;
+  padding: 0;
+}

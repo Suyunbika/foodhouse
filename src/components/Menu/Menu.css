@@ -1,0 +1,27 @@
+.menu {
+    margin-top: 90px;
+}
+
+.menu-title {
+    font-size: 54px;
+}
+
+.menu-line {
+    background-color: #FE8C01;
+    height: 7px;
+    width: 220px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.menu_inner {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-menu {
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}

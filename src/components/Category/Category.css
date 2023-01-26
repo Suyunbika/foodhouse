@@ -1,0 +1,14 @@
+.category {
+    background: #E9F8FB;
+    padding: 18px 20px;
+    border-radius: 10px;
+}
+
+.category:hover{
+    background: #FE8C01;
+}
+
+.category-text {
+    font-weight: 800;
+    font-size: 26px;
+}
