@@ -1,5 +1,6 @@
 import Category from '../Category/Category';
 import './Menu.css';
+
 import salad from '../../assets/green-salad.svg'
 import drink from '../../assets/drink.svg'
 import hamburger from '../../assets/hamburger.svg'
@@ -14,71 +15,131 @@ import item5 from '../../assets/item__image4.png';
 import item6 from '../../assets/item__image1.png';
 import item7 from '../../assets/item__image2.png';
 import item8 from '../../assets/item__image3.png';
-import ListMenu from '../List-menu/ListMenu';
+import item9 from '../../assets/drink.jpg';
+import item10 from '../../assets/burger.jpg';
+import item11 from '../../assets/doska.jpg';
+import item12 from '../../assets/pizza-napoletana.jpg';
 
+import ListMenu from '../List-menu/ListMenu';
+import { useEffect, useState } from 'react';
 
 const Menu = () => {
     const categories = [
         {
             url: salad,
-            text: "Салаты"
+            text: "Салаты",
+            type: "salad"
         },
         {
             url: drink,
-            text: "Напитки"
+            text: "Напитки",
+            type: "drink"
         },
         {
             url: hamburger,
-            text: "Бургеры"
+            text: "Бургеры",
+            type: "hamburger"
         },
         {
             url: fri,
-            text: "Закуски"
+            text: "Закуски",
+            type: "snacks"
         },
         {
             url: pizza,
-            text: "Пицца"
+            text: "Пицца",
+            type: "pizza"
         },
         {
             url: discount,
-            text: "Акции"
+            text: "Акции",
+            type: "discount"
         }
     ]
 
     const list = [
         {
             url: item1,
-            text: "Салат"
+            text: "Салат",
+            des: "300 грамм - 1 порция",
+            size: "36 - белков, 11 - жиров, 55 - углеводов",
+            type: "salad"
         },
         {
-            url: item2,
-            text: "Салат Греческий"
+            url: item9,
+            text: "Напиток Лайм",
+            des: "300 грамм - 1 порция",
+            size: "36 - белков, 11 - жиров, 55 - углеводов",
+            type: "drink"
         },
         {
-            url: item3,
-            text: "Салат Тропический"
+            url: item10,
+            text: "Сочный бургер",
+            des: "300 грамм - 1 порция",
+            size: "36 - белков, 11 - жиров, 55 - углеводов",
+            type: "hamburger"
         },
         {
-            url: item4,
-            text: "Салат Японка"
+            url: item11,
+            text: "Закуска с рыбой",
+            des: "300 грамм - 1 порция",
+            size: "36 - белков, 11 - жиров, 55 - углеводов",
+            type: "snacks"
         },
         {
-            url: item5,
-            text: "Салат Собери Сам"
+            url: item12,
+            text: "Пицца Наполетана",
+            des: "300 грамм - 1 порция",
+            size: "36 - белков, 11 - жиров, 55 - углеводов",
+            type: "pizza"
         },
         {
             url: item6,
-            text: "Салат Цезарь"
+            text: "Салат Цезарь",
+            des: "300 грамм - 1 порция",
+            size: "36 - белков, 11 - жиров, 55 - углеводов",
+            type: "salad"
         },
         {
             url: item7,
-            text: "Салат Оливье"
+            text: "Салат Оливье",
+            des: "300 грамм - 1 порция",
+            size: "36 - белков, 11 - жиров, 55 - углеводов",
+            type: "salad"
         },
         {
             url: item8,
-            text: "Салат Летний"
+            text: "Салат Летний",
+            des: "300 грамм - 1 порция",
+            size: "36 - белков, 11 - жиров, 55 - углеводов",
+            type: "salad"
         }
     ]
+
+    const [category, setCategory] = useState(categories);
+    const [product, setProduct] = useState(list);
+
+    const [selectedCategory, setSelectedCategory] = useState("none");
+
+    const onChangeSelectedCategory = (type) => {
+        setSelectedCategory(type);
+    };
+
+    useEffect(() => {
+        setProduct((prevState) => {
+            prevState = [...prevState];
+
+            prevState = list.filter(
+                (product) => product.type === selectedCategory
+            );
+
+            if (selectedCategory === "none") {
+                prevState = product;
+            }
+
+            return prevState;
+        });
+    }, [selectedCategory]);
 
     return (
         <div className="menu">
@@ -89,24 +150,28 @@ const Menu = () => {
                 </div>
                 <div className="menu_inner">
                     {
-                        categories.map((category) => {
+                        category.map((category) => {
                             return (
-                                <Category url={category.url} text={category.text} />
+                                <Category category={category} onChangeSelectedCategory={onChangeSelectedCategory}/>
                             )
                         })
                     }
                     
                 </div>
                 <div className="list-menu">
-                    {
-                        list.map((category) => {
-                            return (
-                                <ListMenu url={category.url} text={category.text} />
-                            )
-                        })
-                    }
+                    <div className="container">
+                        {
+                            product.map((listItem) => {
+                                return (
+                                    <ListMenu url={listItem.url} text={listItem.text} des={listItem.des} size={listItem.size}/>
+                                )
+                            })
+                        }
+                    </div>
+                    
                 </div>
             </div>
+            <button className='button-all'>Показать ещё</button>
         </div>
     )
 }

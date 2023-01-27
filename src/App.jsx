@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import Category from './components/Category/Category'
 import Header from './components/Header/Header'
 import ListMenu from './components/List-menu/ListMenu'
@@ -14,8 +13,6 @@ function App() {
       <Header />
       <Main />
       <Menu />
-      <Category />
-      <ListMenu />
     </>
   )
 }

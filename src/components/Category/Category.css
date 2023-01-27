@@ -1,14 +1,21 @@
 .category {
     background: #E9F8FB;
-    padding: 18px 20px;
+    padding: 16px 36px;
     border-radius: 10px;
+    transition: all .4s;
+    cursor: pointer;
 }
 
 .category:hover{
     background: #FE8C01;
+    color: #fff;
 }
 
 .category-text {
     font-weight: 800;
     font-size: 26px;
+}
+
+.category-img {
+    width: 100px;
 }
