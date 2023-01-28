@@ -4,7 +4,7 @@ import item7 from '../assets/item__image2.png';
 import item8 from '../assets/item__image3.png';
 import item9 from '../assets/drink.jpg';
 import item10 from '../assets/burger.jpg';
-import item11 from '../assets/doska.jpg';
+import item11 from '../assets/fri.jpg';
 import item12 from '../assets/pizza-napoletana.jpg';
 
 export const list = [
@@ -62,6 +62,6 @@ export const list = [
         text: "Салат Летний",
         des: "300 грамм - 1 порция",
         size: "36 - белков, 11 - жиров, 55 - углеводов",
-        type: "salad"
+        type: "discount"
     }
 ];

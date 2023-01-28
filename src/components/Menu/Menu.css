@@ -16,8 +16,9 @@
 
 .menu_inner {
     margin-top: 70px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
 }
 
 .list-menu .container {
